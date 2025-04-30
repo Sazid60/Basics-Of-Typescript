@@ -37,3 +37,33 @@ d = true;
 let p: number;
 
 // p = "123"
+
+//  Non-PRIMITIVE
+// _________________________________________________________
+
+// let friends = ["rachel", "monica"];
+// Here as well ts will infer that its an array
+// We can explicitly define the types
+
+let friends: string[] = ["rachel", "monica"];
+// friends.push(2);
+
+let eligibleRoleList: number[] = [1, 2, 3, 4, 5];
+
+//  Tuple
+
+// Tuple type (Tuple can in pairs like 2,3,4 or any numbers of pairs)
+// Tuple is also a special kind o9f array in which orders are  maintained of type of values
+
+let coordinates: [number, number] = [1, 2];
+
+// let ageName = [50, "Mr.Sazid"];
+// if we want we can chang the value by grabbing the index and add another value in the array as well
+// ageName[0] = "Mr.Sazid";
+// this is not right
+
+let ageName: [number, string, boolean] = [50, "Mr.Sazid", true];
+
+// ageName[0] = "Mr.Sazid";
+
+//  now we cant

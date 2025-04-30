@@ -178,7 +178,7 @@ console.log(course);
 
 ### Starting With Primitive Data Types
 
-1.4.ts
+- 1.4.ts
 
 - Typescript is smart . Even If We Have not gave any type it will infer the data type from our value.
 - This is called typescript implicit data types
@@ -230,4 +230,55 @@ d = true;
 let p: number;
 
 // p = "123" not assignable
+```
+
+### Starting With Non-Primitive Data Types
+
+- Array Types
+- Here as well ts will infer that its an array
+
+```ts
+let friends = ["rachel", "monica"];
+```
+
+- We can explicitly define the types
+
+```ts
+let friends: string[] = ["rachel", "monica"];
+let eligibleRoleList: number[] = [1, 2, 3, 4, 5];
+```
+
+- If we want to push different type of variable it will show error
+
+```ts
+let friends: string[] = ["rachel", "monica"];
+friends.push(2); // will show error
+```
+
+- Tuple type (Tuple can in pairs like 2,3,4 or any numbers of pairs)
+- Tuple is also a special kind o9f array in which orders are maintained of type of values and the number of values
+- Tuple --> array --> order --> type of values
+
+```ts
+let coordinates: [number, number] = [1, 2];
+```
+
+- What is the facility of Tuple ?
+- Without Tuple
+
+```ts
+let ageName = [50, "Mr.Sazid"];
+// if we want we can chang the value by grabbing the index and add another value in the array as well
+ageName[0] = "Mr.Sazid";
+//  this is not right
+```
+
+- Using Tuple
+
+```ts
+let ageName: [number, string, boolean] = [50, "Mr.Sazid", true];
+
+// ageName[0] = "Mr.Sazid";
+
+//  now we cant
 ```
