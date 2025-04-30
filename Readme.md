@@ -113,3 +113,42 @@ By conquering these topics, you'll be well on your way to becoming a TypeScript 
 
 - Go to cmd and "npm install -g typescript" . We Are Installing it globally
 - To check the version "tsc -v" . Tsc Is a Typescript Compiler which converts ts code to js code
+
+## 1-3 Write Your First Typescript Program
+
+- index.ts
+
+```ts
+let course = "Next Level Web Development";
+console.log(course);
+```
+
+- even if its ts file it will show output if we run "node index.ts" since we have used nothing of ts here
+
+- index.ts
+
+```ts
+let course: string = "Next Level Web Development";
+console.log(course);
+```
+
+- This will show error that node.jks can not run the ts code directly
+- We need typescript compiler. "tsc index.ts". this will transpile the ts code to js code
+- In the folder structure is module1--> src --> index.ts write this command to transpile to js "tsc .\module1\src\index.ts"
+
+- if we open ts and the transpiled js file in same folder and opened it will show an error so we will keep the transpiled files in another folder.
+
+- we need a typescript configuration file fo this we have to write "tsc --init", it will give us tsconfig.json file
+
+- tsconfig.json configuration
+
+```json
+"target": "ES5" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+//  will find out root dir and set the directory where the ts file is
+   "rootDir": "./module1/src/",
+
+//  we will find out outDir and set this to tell where the transpiled js code will be stored
+    "outDir": "./module1/dist"
+```
+
+- After configuration we will just have to write "tsc" to transpile the files to js. we do not need to say the specific file names and folder."tsc command will convert all the ts files in the folder in src and keep it in dist folder"
