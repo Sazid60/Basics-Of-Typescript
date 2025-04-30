@@ -92,3 +92,24 @@ By conquering these topics, you'll be well on your way to becoming a TypeScript 
 - Limited Library Support : Some libraries do not support typescript
 - Over Engineering
 - Migration Challenge in converting js to ts
+
+## 1-2 Installation Of Typescript and Fast Node Version Manager
+
+- We need to install node version manager since ts will be converted to js and to run the js in server side we need a run time, we will use node.js as the run time
+
+### Install Node.js
+
+[Node.js-Download](https://nodejs.org/en/download)
+
+- Node.js Installation using command line since it will give us flexibilities switch in different version
+  1. write "winget install Schniz.fnm" this command in powershell, this will Download and install fnm
+  2. "fnm install 22" write this command to install version 22
+  3. "fmn list" this command will show the list of node versions that are provided by fnm
+  4. "fnm env --use-on-cd | Out-String | Invoke-Expression" use this command to set the environment
+  5. "fnm install 22.15.0" this command to install required version
+  6. "fnm use 22.11.0" to switch version
+
+### Install Typescript
+
+- Go to cmd and "npm install -g typescript" . We Are Installing it globally
+- To check the version "tsc -v" . Tsc Is a Typescript Compiler which converts ts code to js code
