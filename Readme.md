@@ -152,3 +152,82 @@ console.log(course);
 ```
 
 - After configuration we will just have to write "tsc" to transpile the files to js. we do not need to say the specific file names and folder."tsc command will convert all the ts files in the folder in src and keep it in dist folder"
+
+## 1-4 Basic Data Types Of Typescript
+
+![alt text](<WhatsApp Image 2025-04-30 at 20.37.15_1d467f83.jpg>)
+
+#### Primitive data Types
+
+1. Number
+2. String
+3. Boolean
+4. Null
+5. Undefined
+6. symbol
+
+#### Non-Primitive data Types
+
+- In js we just use object in non-primitive since we know array is also a object and object is a object type data.
+- But Typescript has gave us different Array and Object Type data Type.
+  1.  Array
+  2.  Tuple
+  3.  Object
+- We will not get the ts data types in run time, we will compile ts to js and use node.js to to run the js
+- So? how does ts helps us? It Helps us when we compile the code it will show us the errors related to the types.
+
+### Starting With Primitive Data Types
+
+1.4.ts
+
+- Typescript is smart . Even If We Have not gave any type it will infer the data type from our value.
+- This is called typescript implicit data types
+
+```ts
+//  String
+let firstName = "Sazid";
+```
+
+- we can also tell the data type explicitly
+
+```ts
+let lastName: string = "Sazid";
+```
+
+- Number, Boolean, Null, Undefined Data Types
+
+```ts
+// Number
+let roll: number = 123;
+
+// Boolean
+
+let isAdmin: boolean = true;
+
+//  undefined
+
+let x: undefined = undefined;
+
+// Null
+
+let y: null = null;
+```
+
+- If we do not declare and do not assign any value the typescript will infer as any type
+- We can keep any type of data ts will not mind
+
+```ts
+let d;
+d = "Sazid";
+d = true;
+```
+
+- Basically we should not use any type, if wer use this we will not get the facilities of ts
+
+- We Should Declare Like this
+
+```ts
+let p: number;
+
+// p = "123" not assignable
+```
