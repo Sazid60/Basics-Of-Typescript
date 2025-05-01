@@ -388,3 +388,71 @@ user.isMarried;
 user.lastName;
 user.middleName;
 ```
+
+## 1-6 Functions In Typescript
+
+- Functions are the building Blocks
+- There are two types of functions in js
+
+1. Normal Function
+2. Arrow Function
+
+- Normal Function without Ts
+
+```ts
+//  Normal Function
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+add(2, true);
+```
+
+- Normal Function with Ts
+
+```ts
+function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+
+add(2, 3);
+```
+
+- Arrow Function with Ts
+
+```ts
+const addArrow = (num1: number, num2: number): number => num1 + num2;
+```
+
+- Setting default value
+
+```ts
+function add(num1: number, num2: number = 10): number {
+  return num1 + num2;
+}
+
+add(2, 3);
+```
+
+- when a function is written inside an object it is called method
+- object --> function --> method
+
+```ts
+const poorUser = {
+  name: "Sazid",
+  balance: 0,
+  // inside object arrow function do not work since we have to use "this" so we are using anonyms normal function
+  addBalance(balance: number): string {
+    return `My new Balance Is ${this.balance + balance} `;
+  },
+};
+```
+
+- Callback Function Using TS
+
+```ts
+const arr: number[] = [1, 2, 3, 4];
+
+const newArray: number[] = arr.map((elem: number): number => elem * elem);
+```
