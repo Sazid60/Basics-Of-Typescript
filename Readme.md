@@ -282,3 +282,5 @@ let ageName: [number, string, boolean] = [50, "Mr.Sazid", true];
 
 //  now we cant
 ```
+
+## 1-5 Object, Optional and Literal Types
