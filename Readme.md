@@ -717,3 +717,61 @@ const add1: Add = (num1, num2) => num1 + num2;
     designation2: "Backend Developer",
   };
   ```
+
+## 1-11 Ternary, Optional Chaining , & Nullish Coalescing Operator
+
+- " ? " This bad boy will be called in different names based on the usages
+
+1. When "?" is used for making decision it is called ternary operator
+2. If a property is exist or not check by "?" is called optional chaining
+3. "?" it can be used as nullish Coalescing Operator
+
+- For running the ts automatically we will use TS-NODE-DEV
+  (TS-NODE-DEV)[https://www.npmjs.com/package/ts-node-dev]
+- Install "npm i -g ts-node-dev" installed globally for all time use
+- Run this command "ts-node-dev --respawn --transpile-only .\module1\src\1
+  .11.ts"
+
+- Without Ternary Operator
+
+```ts
+const age: number = 15;
+// bangla niom
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Not Adult");
+}
+```
+
+- Using Ternary Operator
+
+```ts
+//   using ternary operator
+const isAdult = age >= 18 ? "Adult" : "Not Adult";
+console.log(isAdult);
+```
+
+- Nullish Coalescing Operator
+  1. When Decision is made based on Null or Undefined Nullish is used
+  2. If the value is n ull or undefined we will set a default value then we will use nullish
+
+```ts
+const isAuthenticated = undefined;
+
+//   nullish
+const result1 = isAuthenticated ?? "Guest";
+
+//   difference with ternary
+const result2 = isAuthenticated ? isAuthenticated : "Guest";
+console.log({ result1 }, { result2 });
+```
+
+- Optional Chaining
+
+```ts
+//   optional Chaining
+const permanentAddress =
+  user?.address?.permanentAddress ?? "No Permanent Address";
+console.log({ permanentAddress });
+```
