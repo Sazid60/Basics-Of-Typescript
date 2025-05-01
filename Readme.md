@@ -661,3 +661,59 @@ type Add = (num1: number, num2: number) => number;
 
 const add1: Add = (num1, num2) => num1 + num2;
 ```
+
+## 1-10 Union and Intersection Types
+
+- Union Types
+
+  1. Union type is same as js or operator and it is written by "|"
+
+  ```ts
+  // union Types
+  type FrontendDeveloper = "fakibazDeveloper" | "juniorDeveloper"; //this is string literal Types
+  type FullstackDeveloper = "frontendDeveloper" | "expertDeveloper";
+
+  type Developer = FrontendDeveloper | FullstackDeveloper;
+  // Union Types can be written to make different types union as well
+  const newDeveloper: FrontendDeveloper = "juniorDeveloper";
+
+  type User = {
+    name: string;
+    email?: string;
+    gender: "male" | "female";
+    bloodGroup: "O+" | "A+" | "C+";
+    // here string literal is used and the options are made using union types
+  };
+
+  const user1: User = {
+    name: "persian",
+    gender: "male",
+    bloodGroup: "O+",
+  };
+  ```
+
+- Intersection types
+
+  1. Intersections means common properties
+  2. Its like and of js. like this and this
+  3. "&" is used to write intersection types
+
+  ```ts
+  //   intersection
+  type FrontendDeveloper = {
+    skill: string[];
+    designation1: "Frontend Developer";
+  };
+  type BackendDeveloper = {
+    skill: string[];
+    designation2: "Backend Developer";
+  };
+
+  type FullstackDeveloper = FrontendDeveloper & BackendDeveloper;
+
+  const fullstackDeveloper: FullstackDeveloper = {
+    skill: ["HTML", "CSS", "EXPRESS"],
+    designation1: "Frontend Developer",
+    designation2: "Backend Developer",
+  };
+  ```
