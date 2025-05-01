@@ -132,7 +132,7 @@ let course: string = "Next Level Web Development";
 console.log(course);
 ```
 
-- This will show error that node.jks can not run the ts code directly
+- This will show error that node.js can not run the ts code directly
 - We need typescript compiler. "tsc index.ts". this will transpile the ts code to js code
 - In the folder structure is module1--> src --> index.ts write this command to transpile to js "tsc .\module1\src\index.ts"
 
@@ -151,7 +151,7 @@ console.log(course);
     "outDir": "./module1/dist"
 ```
 
-- After configuration we will just have to write "tsc" to transpile the files to js. we do not need to say the specific file names and folder."tsc command will convert all the ts files in the folder in src and keep it in dist folder"
+- After configuration we will just have to write "tsc" to transpile the files to js. we do not need to say the specific file names and folder."tsc" command will convert all the ts files in the folder in src and keep it in dist folder"
 
 ## 1-4 Basic Data Types Of Typescript
 
@@ -169,7 +169,7 @@ console.log(course);
 #### Non-Primitive data Types
 
 - In js we just use object in non-primitive since we know array is also a object and object is a object type data.
-- But Typescript has gave us different Array and Object Type data Type.
+- But Typescript has gave us specific Array and Object Type data Type.
   1.  Array
   2.  Tuple
   3.  Object
@@ -255,8 +255,8 @@ let friends: string[] = ["rachel", "monica"];
 friends.push(2); // will show error
 ```
 
-- Tuple type (Tuple can in pairs like 2,3,4 or any numbers of pairs)
-- Tuple is also a special kind o9f array in which orders are maintained of type of values and the number of values
+- Tuple type (Tuple can be in pairs like 2,3,4 or any numbers of pairs)
+- Tuple is also a special kind of array in which orders are maintained of type of values and the number of values
 - Tuple --> array --> order --> type of values
 
 ```ts
@@ -284,3 +284,107 @@ let ageName: [number, string, boolean] = [50, "Mr.Sazid", true];
 ```
 
 ## 1-5 Object, Optional and Literal Types
+
+- Object is an important data structure of object.
+- Implicit Types
+
+```ts
+// Reference Type --> Object
+
+//  this is implicit type, this will automatically infer the types
+const user = {
+  firstName: "Sazid",
+  middleName: "Abedin",
+  lastName: "Persian",
+};
+```
+
+- If we want Explicit Types
+
+```ts
+// explicit  and optional type
+const user: {
+  company: string;
+  firstName: string;
+  // this is for making optional(It maybe string | Undefined ) and which is not made optional is taken as required
+  middleName?: string;
+  lastName: string;
+  isMarried: boolean;
+} = {
+  company: "Programming Hero",
+  firstName: "Sazid",
+  lastName: "Persian",
+  isMarried: true,
+};
+```
+
+- If the situation is like we want to keep the company name fixed we will use string literal types
+
+```ts
+// explicit  and optional type
+const user: {
+  company: "Programming Hero"; // this programming hero will become a type
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  isMarried: boolean;
+} = {
+  company: "Programming Hero", // if we ant to write anything else except the defined literal types it will show type error
+  firstName: "Sazid",
+  lastName: "Persian",
+  isMarried: true,
+};
+```
+
+- we can access the properties form the object. If we define a object in one file and export we can access any property of the object in any other files like this
+  ![alt text](image.png)
+
+```ts
+// explicit  and optional type
+const user: {
+  company: "Programming Hero";
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  isMarried: boolean;
+} = {
+  company: "Programming Hero",
+  firstName: "Sazid",
+  lastName: "Persian",
+  isMarried: true,
+};
+
+user.company;
+user.firstName;
+user.isMarried;
+user.lastName;
+user.middleName;
+```
+
+- Making string literal using readonly method. its also called access modifier
+
+```ts
+// explicit  and optional type
+const user: {
+  // company: "Programming Hero"; // this programming hero will become a type
+  //  this type can be made using read only as well
+  readonly company: string;
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  isMarried: boolean;
+} = {
+  company: "Programming Hero", // if we ant to write anything else except the defined literal types it will show type error
+  firstName: "Sazid",
+  lastName: "Persian",
+  isMarried: true,
+};
+
+// we can access the properties form the object. If we define a object in one file and export we can access any property of the object in any other files like this
+
+// user.company = "PH"; // cant change because it is made readonly
+user.firstName;
+user.isMarried;
+user.lastName;
+user.middleName;
+```
