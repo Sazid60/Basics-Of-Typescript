@@ -456,3 +456,121 @@ const arr: number[] = [1, 2, 3, 4];
 
 const newArray: number[] = arr.map((elem: number): number => elem * elem);
 ```
+
+## 1-7 Spread and Rest Operator
+
+![alt text](image-1.png)
+
+- We are getting this error since we have declared in another file but files are kept in one folder and ts is making it global and accessing it and showing The error.
+
+- for practice we will do like this
+
+```ts
+{
+  const poorUser = "";
+}
+```
+
+- Spread Operator
+
+```ts
+// Spread Operator
+
+const bros1: string[] = ["Sazid", "Pazid", "Mazid", "Dazid"];
+const bros2: string[] = ["Tonmoy", "Monmoy", "Chonmoy", "Donmoy"];
+
+//   bros1.push(bros2)
+// this is not right method since it will end up in a messed array
+//   output : ["Sazid", "Pazid", "Mazid", "Dazid", ["Tonmoy", "Monmoy", "Chonmoy", "Donmoy"]];
+// this is wrong since we want to push the values only so we have to use spread operator
+bros1.push(...bros2);
+
+const mentor1 = {
+  typescript: "Mezba",
+  redux: "Mir",
+  dbms: "Mizan",
+};
+
+const mentor2 = {
+  prisma: "Firoz",
+  next: "Tonmoy",
+  cloud: "Nahid",
+};
+
+const mentorList = {
+  ...mentor1,
+  ...mentor2,
+};
+```
+
+![alt text](image-2.png)
+
+- after doing the spread operator the mentorList will automatically infer the types
+
+- Rest Operator
+
+```ts
+//  non-rest
+const greetFriends = (friend1: string, friend2: string, friend3: string) => {
+  console.log(`Hi  ${friend1} ${friend2} ${friend3}`);
+};
+
+greetFriends("abul", "kabul", "babul");
+```
+
+- here is a problem if friend increases we haver to declare parameters manually, this is not right, here rest operator comes with a solution
+
+```ts
+const greetFriends = (...friends: string[]) => {
+  friends.forEach((friend: string) => console.log(`hi ${friend}`));
+};
+
+greetFriends("abul", "kabul", "babul");
+```
+
+## 1-8 Destructuring-In-Typescript
+
+- Two Types of Destructuring
+
+  1. Object Destructuring
+
+  ```ts
+  //  Object Destructuring
+  const user = {
+    id: 123,
+    name: {
+      firstName: "Shah",
+      middleName: "Nawaz",
+      lastName: "Sazid",
+    },
+    contactNo: "0170000000000",
+    address: "Uganda",
+  };
+
+  const {
+    id,
+    name: { middleName },
+  } = user;
+  // while doing it if any spelling error it will say that this do not exist in type
+
+  // we can use alias as well
+  const {
+    name: { middleName: midName },
+    contactNo: phoneNumber,
+  } = user;
+  // here we can not declare types while destructuring like this  const {name: { middleName: string }} = user; since ts can smartly detect the middleName should be which type
+  ```
+
+  1. Array Destructuring
+
+  ```ts
+  // Array Destructuring
+
+  const myFriends = ["chandler", "joey", "ross", "kosh", "singara", "bulbuli"];
+
+  const [a, b, c, d, e, f] = myFriends; // output : "chandler", "joey", "ross", "kosh", "singara", "bulbuli"
+  const [, , , , , besFriend] = myFriends; // output : "bulbuli"
+  const [, , , , ganduFriend] = myFriends; // output : "singara"
+  const [, , , , ...ganduFriends] = myFriends; // output : ["singara","bulbuli"]
+  const [, , kharapBondu, ...rest] = myFriends; // output : kharapBondu = "ross" rest = ["kosh", "singara", "bulbuli"]
+  ```
