@@ -775,3 +775,58 @@ const permanentAddress =
   user?.address?.permanentAddress ?? "No Permanent Address";
 console.log({ permanentAddress });
 ```
+
+## 1-12 Never Unknown and Nullable Types
+
+- Nullable type
+
+  1. When a Variable Type Is Null Its Called Nullable Type
+  2. ist like searching specific things when searched and when the search is not done null is send it should show all the data. we are explicitly tel;ling its null
+
+  ```ts
+  const searchName = (value: string | null) => {
+    if (value) {
+      console.log("Searching");
+    } else {
+      console.log("There Is Nothing To Search");
+    }
+  };
+
+  searchName(null);
+  ```
+
+- Unknown Type
+
+  1. its like we do not know the type for now but we will know in future. in this case we will use "Unknown Type"
+  2. In future we will use typeof to detect the type in run time
+
+  ```ts
+  const getSpeedInMeterPerSecond = (value: unknown) => {
+    if (typeof value === "number") {
+      const convertedSpeed = (value * 1000) / 3600;
+      console.log(`The Speed Is ${convertedSpeed}`);
+    } else if (typeof value === "string") {
+      const [result, unit] = value.split(" ");
+      console.log(result);
+      const convertedSpeed = (parseFloat(result) * 1000) / 3600;
+      console.log(`The Speed Is ${convertedSpeed}`);
+    } else {
+      console.log(`Wrong Input`);
+    }
+  };
+
+  getSpeedInMeterPerSecond(1000);
+  getSpeedInMeterPerSecond(`1000 kmh^-1`);
+  getSpeedInMeterPerSecond(null);
+  ```
+
+- Never Type
+  1. Means when a function will never return anything it is called Never Type
+
+```ts
+const throwError = (msg: string): never => {
+  throw new Error(msg);
+};
+
+throwError("Mshkil Se Error Ho Gaya ");
+```
